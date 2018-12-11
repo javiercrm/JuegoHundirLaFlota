@@ -1,0 +1,115 @@
+table {
+    width: 250px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+}
+
+table tr td {
+    border: 1px solid #000;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: inline;
+}
+
+#cajaInformacion {
+    background-color: burlywood;
+    width: 300px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+#cajaBotones {
+
+    width: 300px;
+    padding: 25px 0;
+
+}
+
+#cajaBotones button{
+
+    width: 100%;
+    margin: 10px auto;
+    padding: 6px 0;
+
+}
+
+#cajatexto{
+    text-align: center;
+    height: 120px;
+}
+
+.barcoManual {
+	background: rgba(255, 0, 0,0.6);
+}
+
+.barcoPosicionadoUno {
+	background: rgba(36,36,36,1);
+}
+
+.barcoPosicionadoDos {
+	background: rgba(36,36,36,0.8);
+}
+
+.barcoPosicionadoTres {
+	background: rgba(36,36,36,0.6);
+}
+
+.barcoPosicionadoCuatro {
+	background: rgba(36,36,36,0.4);
+}
+
+.barcoPosicionadoCinco {
+	background: rgba(36,36,36,0.2);
+}
+
+/*.tocado{
+    background-color: red;
+}
+
+.agua{
+    background-color: blue;
+}*/
+
+.ataque{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.circuloAgua{
+
+    background-color: blue;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    
+}
+
+.circuloTocado{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
