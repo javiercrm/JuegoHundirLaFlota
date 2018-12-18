@@ -2,4 +2,4 @@
 
 Estructura de las Clases:
 
-![](images/UML.png)
+![](images/UML.PNG)
