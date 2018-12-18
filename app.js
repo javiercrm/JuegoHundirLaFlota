@@ -196,12 +196,12 @@ function anadirBarco(player, inicio, longitud, horientacion){
                 
                 if (horientacion == 0) {
 
-                    player.barcos[player.barcos.length-1]["localizaciones"][i] = [fila, columna];
+                    player.barcos[player.barcos.length-1].localizaciones[i] = [fila, columna];
                     columna++;
 
                 } else if (horientacion == 1) {
 
-                    player.barcos[player.barcos.length-1]["localizaciones"][i] = [fila, columna];
+                    player.barcos[player.barcos.length-1].localizaciones[i] = [fila, columna];
                     fila ++;
 
                 }
@@ -359,7 +359,7 @@ function anadirBarcosAleatorios(player) {
 //Comprobamos la posicion del barco
 function PosicionBarco(fila, columna, player, booll) {
 
-    var cordenada = fila + "," + columna
+    var cordenada = fila + "," + columna;
 
     for (let h = 0; h < player.barcos.length; h++) {
         for (let j = 0; j < player.barcos[h].localizaciones.length; j++) {
@@ -638,7 +638,7 @@ function clickAtacar() {
 
             atacar();
 
-        })
+        });
 
     }
     
@@ -646,6 +646,9 @@ function clickAtacar() {
 
 //Creamos la funcion que realizara el ataque
 function atacar(posAtaque){
+  
+  var ataqueAleatorio;
+  var atacado;
 
     //Recogemos las posicion de ataque en el turno del Jugador
     if (Jugador.numeroAtaque == Maquina.numeroAtaque) {
@@ -671,7 +674,7 @@ function atacar(posAtaque){
         
                     do {
 
-                        var ataqueAleatorio = (Math.floor(Math.random() * 4))+1;
+                        ataqueAleatorio = (Math.floor(Math.random() * 4))+1;
                         
                     } while (Maquina.orden.indexOf(ataqueAleatorio) != -1 || ataqueAleatorio < 1 || ataqueAleatorio > 4);
                     
@@ -851,7 +854,7 @@ function atacar(posAtaque){
     //La maquina ataca
     } else if (Jugador.numeroAtaque > Maquina.numeroAtaque){
 
-        var atacado = false;
+        atacado = false;
 
         while (atacado == false) {
 
@@ -904,7 +907,7 @@ function atacar(posAtaque){
 
             agregarInformacion("Jugador a tocado un barco de la Maquina", true);
 
-            comprobarVidaBarco(fila+","+columna, Maquina)
+            comprobarVidaBarco(fila+","+columna, Maquina);
             
         //Jugador encuentra Agua
         } else {
@@ -1196,7 +1199,7 @@ function agregarALaEscuchaBotonesConfiguracion(){
 
         clickAtacar();
 
-    })
+    });
 
     document.getElementById("Partida_Nueva").addEventListener('click', function(){
 
@@ -1206,14 +1209,14 @@ function agregarALaEscuchaBotonesConfiguracion(){
         document.getElementById("Posiciones_Automaticas").classList.add("show");
         document.getElementById("Posiciones_Manuales").classList.add("show");
 
-    })
+    });
 
     document.getElementById("Cambiar_Direccion").addEventListener('click', function(){
 
         if(Jugador.posicion == 1) Jugador.posicion = 0;
         else if (Jugador.posicion == 0) Jugador.posicion = 1;
 
-    })
+    });
 
     document.getElementById("Posiciones_Automaticas").addEventListener('click', function(){
 
@@ -1226,7 +1229,7 @@ function agregarALaEscuchaBotonesConfiguracion(){
 
         document.getElementById("Iniciar_Juego").classList.add("show");
 
-    })
+    });
 
     document.getElementById("Posiciones_Manuales").addEventListener('click', function(){
 
@@ -1239,7 +1242,7 @@ function agregarALaEscuchaBotonesConfiguracion(){
 
         document.getElementById("Cambiar_Direccion").classList.add("show");
 
-    })
+    });
 
 }
 
@@ -1341,7 +1344,7 @@ function anadirBarcosManualmente(player) {
             
             return;
     
-        })
+        });
         
         pos[i+1].addEventListener('mouseenter', function(){
 
@@ -1399,7 +1402,7 @@ function anadirBarcosManualmente(player) {
                             document.getElementById("Iniciar_Juego").classList.add("show");
                         }
 
-                    })
+                    });
                     
                 }
                 
@@ -1415,7 +1418,7 @@ function anadirBarcosManualmente(player) {
 //Coloreamos con un circulo la posicion de ataque sonde este situado el usuario sobre la tabla de maquina
 function mostrarPosicionAtaque() {
 
-    var pos = new Array();
+    var pos = [];
 
     for (let j = 0; j < 100; j++) {
 
@@ -1428,9 +1431,9 @@ function mostrarPosicionAtaque() {
 
         pos[i+1].addEventListener('mouseleave', function (){
 
-            document.querySelector("#"+pos[i+1].id+" span").classList.remove("ataque")
+            document.querySelector("#"+pos[i+1].id+" span").classList.remove("ataque");
 
-        })
+        });
 
             
         
@@ -1438,7 +1441,7 @@ function mostrarPosicionAtaque() {
 
             document.querySelector("#"+pos[i+1].id+" span").classList.add("ataque");
 
-        })
+        });
     }
     
 }
